@@ -6,10 +6,8 @@ from PIL import Image
 import torchvision.transforms as transforms
 from torch.utils.data import Dataset, DataLoader
 
-# Prüfe, ob eine GPU verfügbar ist
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
-
 
 class LeafAgeDataset(Dataset):
     def __init__(self, image_folder):
@@ -63,11 +61,11 @@ criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 num_epochs = 50
-print(torch.cuda.is_available())  # Sollte "True" ausgeben, wenn CUDA erkannt wird
+print(torch.cuda.is_available())
 for epoch in range(num_epochs):
     epoch_loss = 0.0
     for images, labels in dataloader:
-        images, labels = images.to(device), labels.to(device)  # Auf GPU verschieben
+        images, labels = images.to(device), labels.to(device)
         optimizer.zero_grad()
         predictions = model(images)
         loss = criterion(predictions, labels)
@@ -81,24 +79,19 @@ print("Training abgeschlossen! 🚀")
 
 
 def predict_image(image_name):
-    # Das Bild, das du inferieren möchtest
     image_path = os.path.join("test_images", image_name)
 
-    # Lade das Bild
     image = Image.open(image_path)
 
-    # Wende die Transformationen an (Umwandlung in Tensor)
     transform = transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
     ])
 
-    image_tensor = transform(image).unsqueeze(0).to(device)  # Hinzufügen einer Dimension für das Batch und auf das Gerät verschieben
+    image_tensor = transform(image).unsqueeze(0).to(device)
 
-    # Setze das Modell in den Evaluationsmodus
     model.eval()
 
-    # Mache eine Vorhersage
     with torch.no_grad():
         predicted_age = model(image_tensor).item()
 
