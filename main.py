@@ -60,7 +60,7 @@ model = AgePredictionCNN().to(device)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-num_epochs = 50
+num_epochs = 200
 print(torch.cuda.is_available())
 for epoch in range(num_epochs):
     epoch_loss = 0.0
@@ -100,5 +100,5 @@ def predict_image(image_name):
 predict_image("_5_15.png")
 predict_image("_18_5.png")
 predict_image("_31_2.png")
-predict_image("_92.png")
+predict_image("_240.png")
 predict_image("_140_2.png")
