@@ -1,0 +1,138 @@
+\tableofcontents
+\newpage
+\section{Einführung}
+Der Mensch unterliegt genauso den natürlichen Gesetzen wie alle anderen Lebewesen auf unserer Erde. Somit ist es logisch, dass auch der Mensch dem Drang der Fortpflanzung unterliegt, um das Bestehen der Art der Menschen auch in der Zukunft zu gewährleisten. Dieser Effekt lässt sich am besten mit dem immerwährenden Anstieg der Anzahl der auf der Erde lebenden Menschen betrachten. Schon seit tausenden von Jahren ist der Trend ganz klar ausschließlich positiv, und es gab nur wenige Ausnahmen davon, die allerdings im Wesentlichen immer auf Ereignisse heruntergebrochen werden können, die keinen Ursprung in der Natur haben. Dazu zählen Kriege, andere zwischenmenschliche Auseinandersetzungen, Krankheiten und Naturkatastrophen. Biologisch ist die Fortpflanzung einer Art maßgeblich durch die Ressourcen oder eben deren Abwesenheit beschränkt. Mit der Entwicklung des modernen Menschen hat sich eben dies dahingehend verändert, dass der Mensch nicht mit der natürlichen Ressourcenregulation unterliegt. Jedenfalls betrifft es den Menschen auf einer anderen Abstraktionsebene. Somit ist der Mensch in der Lage, wenn er denn genug von Nahrungsmitteln hat, sich im Prinzip unendlich weiter fortzupflanzen. Dies bringt nun allerdings eine Reihe von Problemen mit sich. In dieser Arbeit wird die Möglichkeit beleuchtet, das Problem eines eventuellen Nahrungsmangels in der Zukunft zu bekämpfen, indem ein moderner Ansatz der Nahrungsmittelproduktion erschaffen wird. Dazu werden hierbei insbesondere sogenannte Vertical Farms betrachtet. Die moderne Marktwirtschaft zeigt einen Trend auf, der sich in die Richtung solcher Farmen bewegt. Der Grund dafür mag vielfältiger Natur sein, lässt sich allerdings durch die Standortunabhängigkeit und Kosteneffizienz wohl am besten zusammenfassen. Diese Arbeit versucht nun, eine Metrik zu etablieren, die nicht nur beschreibt, inwiefern sich Vertical Farms in einer Skalierung verhalten, sondern gibt auch noch ein Beispiel dazu, wie komplex etwaige Systeme sind und wie viele einzelne Komponenten von Interesse sind. Dazu wurde im Laufe dieses Projekts ein neuronales Netz implementiert, welches das Alter von Setzlingen und Jungpflanzen anhand von Bildern prognostizieren kann.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{1694.png}
+    \caption{Entwicklung der Weltbevölkerung}
+    \label{fig:enter-label}
+\end{figure}
+\subsection{Nahrungsmittel und Ressourcen}
+Der Mensch nutzt seit Anbeginn seiner allgemeinen Intelligenz die Ressourcen der Erde, um seine Lebensgrundlage zu gewährleisten. Hauptsächlich hat er dafür Pflanzen angebaut, da die Fauna zwar auch eine Nahrungsmittelquelle darstellt, aber auf die benötigte Masse berechnet, nur einen kleinen effizienten Teil ausmachen kann. Daher hat der Mensch sich früh darauf konzentriert, Pflanzen derart anzubauen, um möglichst viel Gewinn für sich erschaffen zu können. Dazu musste er eine Reihe von Techniken entwickeln, um den Maßstab des Anbaus vergrößern zu können. 
+\subsection{Steinzeit und früher Mensch}
+Zunächst fing er damit an, Pflanzenteile nicht direkt von dem jeweiligen Wirt zu essen, sondern sammelte größere Mengen einer Pflanze, um sie dann entweder einzulagern oder auch Pflanzen, die eher feingranular dargereicht werden, verzehren zu können. Dazu zählen zum Beispiel auch Beeren, welche nur relativ wenig an einem Strauch vorhanden sind, aber beim Sammeln durchaus eine sättigende Menge bereitstellen können.
+\subsection{Beginne der Landwirtschaft}
+Als mit dem Einzug von weiterer Intelligenz der Mensch erkannte, wie der Prozess des Samenursprungs in der Botanik funktioniert, fing er an, Pflanzen an gezielten von ihm auserwählten Standorten anzubauen und so die Wege, die er davor auf sich nehmen musste, einzusparen. Zunächst war das Wissen der einflussreichen Faktoren, die das Pflanzenwachstum beschränken und steuern, sicherlich gering, weswegen zur damaligen Zeit noch nicht besonders große Erträge zu rechnen waren. Als der Mensch dann aber durch den fortschreitenden iterativen Lernprozess den Prozess des Anbaus immer weiter optimierte, kamen immer mehr Faktoren dazu, die beachtet wurden und so die Produktivität erhöhen konnten. Beispielsweise sind die Beachtung von Sonnenstand und Grundwasser extrem signifikant für das Wachstum einer Pflanze. So ist aus frühen archäologischen Funden klar geworden, dass der Mensch alsbald erkannte, dass Pflanzen in Tälern wesentlich besser wachsen als auf Hügeln und steinigem Boden. Bald darauf entwickelten sich erste rudimentäre Äcker, auf denen gezielt eine Monokultur von Pflanzen angelegt wurde. Diese wurden dann nachweislich auch mit Werkzeugen, die speziell für den Ackerbau erfunden und entdeckt wurden, bewirtschaftet. Somit muss also klar gewesen sein, dass nicht nur natürliche Gegebenheiten, sondern auch das direkte Einwirken und Verfahren des Anbaus hochgradig relevant sind für den Erfolg. Mit der Erfindung weiterer Maschinen wurde immer mehr die körperliche Arbeitslast des Menschen minimiert, ohne einen direkt negativen Einfluss auf die Produktivität der landwirtschaftlichen Mission zu haben. Spätestens dann, mit der Erfindung der Dampfmaschine sowie des allgemeinen Motors, war es nun nicht mehr notwendig, Felder händisch zu bestellen, sondern einzelnen Personen konnten mit einem Mal Flächen verarbeiten, für die es vormals dutzende, teils hundert Arbeitskräfte benötigte.
+\subsection{Industrialisierung}
+Der wohl größte Umbruch für die Produktivität des Menschen war der Beginn des Zeitalters der Industrialisierung. Diese Zeit war gekennzeichnet von der extrem schnellen Entwicklung von Gerätschaften, Prozessen und Verfahren, die dazu führten, dass eine gigantische Lawine von Modernisierungsprozessen in Gang gebracht wurde, sodass es den Umfang des heutigen Verständnisses wahrscheinlich sprengen würde. Davon war natürlich auch die Landwirtschaft betroffen und die Anzahl an Menschen explodierte. Überall schossen Fabriken aus dem Boden, die die Nahrungsmittel verarbeiteten. Auch die Anzahl der monokulturellen Landwirtschaft stieg rasant an. Schnell wurde aber auch ein weiteres Problem offensichtlich, welches bis dahin kaum wahrgenommen wurde, beziehungsweise nicht in dem Maße beachtet wurde. Der Platz wurde knapp. Dieses Problem setzte sich bis in unsere heutige moderne Fort. Es bedarf heute mehr denn je einer Lösung, der Weltbevölkerung eine Möglichkeit der Ernährung zu bieten. Mit der aktuellen Urbanisierung wird es außerdem immer schwerer, Fachkräfte zu etablieren, die sich dem Problem der Agrarwirtschaft widmen. Daher entwickelte sich zu Beginn der Jahrtausendwende ein Konzept. Das Konzept der Vertical Farm.
+
+\section{Vertical Farming}
+Vertical Farming beschreibt ein völlig neues Metakonzept, welches aktuell noch in den frühen Phasen der Entwicklung steht. Kernidee ist das fundamentale Konzept der Landwirtschaft, auf abstrahierten 2-dimensionalen Flächen die 3-Dimensionalität zu bringen. Dabei werden eine Vielzahl von Ansätzen verfolgt. Außerdem haben sich unter dem Oberbegriff "Vertical-Farming" nicht nur generelle Konzepte für angesprochene Semantik gesammelt, sondern auch eine Menge allgemeiner Modernisierungsansätze für intelligente Agrarwirtschaft entwickelt. So sind Dinge wie Smart-Farms und moderne Agrarwissenschaft stark in die Thematik verwoben. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{aeroponics-1200x800-1-1024x683.jpeg}
+    \caption{Hydroponische Vertical-Farm}
+    \label{fig:enter-label}
+\end{figure}
+\subsection{Vertical-Farm Typen}
+Das abstrakte Konzept von dreidimensionalem Farming hat unterschiedliche Auswüchse und Umsetzungen hervorgebracht. Im Rahmen dieser Arbeit wurde sich auf eine Anzahl von 5 Konzepten konzentriert, wobei erwähnt sei, dass es sich hierbei nur um einen kleinen Bruchteil der bereits in der Entwicklung befindlichen Ansätze handelt. Grundsätzlich unterscheiden sich die Konzepte vor allem auf der Ebene der konkreten Umsetzung, womit oftmals andere Faktoren wie zum Beispiel der Standort und der Energieverbrauch stark beeinflusst werden.
+\subsubsection{Hydroponische Vertical-Farms}
+Bei hydroponischen Vertical-Farms ist die grundsätzliche Idee, einen großen Verlustfaktor der Natur auszuschalten. Dazu wird in besagter Anbauform gänzlich auf die klassische Erde verzichtet. Stattdessen werden Pflanzen in einer Nährlösung subduziert, bei der die genaue Zusammensetzung bestimmt, gemessen und kontrolliert wird. Wie in Abbildung 2 zu erkennen ist, handelt es sich dabei um Polymerkonstrukte, die einer hochspezialisierten Bauweise unterliegen, um Sensorik und andere Optimierungen ermöglichen zu können. Dazu eignen sich fast alle Pflanzen, die einem schnellen Wachstum unterliegen. Allerdings können gewisse Arten auch Schäden davontragen, da beispielsweise die Pflanze nicht selbst ihre Wasseraufnahme reguliert, sondern vielmehr von externen Prozessen wie Regenfall gesteuert wird. Solche Pflanzen würden sich dementsprechend einer zu großen Menge Wasser bedienen, die so nicht von ihr verarbeitet werden kann. Allerdings kann somit auch auf feingranularster Ebene der Wasser- und Nährstoffhaushalt kontrolliert werden. So kann gerade in skalierbaren Anbau- und Systembedingungen eine signifikante Einsparung von Wasser erzielt werden. Eine Unterart der hydroponischen Systeme sind die aeroponischen Systeme, bei denen eben kein Wassersubstrat mehr zur Anwendung kommt, sondern vielmehr die Pflanze im Freien hängt und die Nährstoffe durch ein Aufsprühen mit einer entsprechenden Vorrichtung vorgenommen werden und somit ein sehr kontrollierbarer Düngevorgang vorgenommen werden kann.
+\subsubsection{Aquaponische Vertical-Farms}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{1682655900899.jpg}
+    \caption{Aquaponisches System (Modell)}
+    \label{fig:enter-label}
+\end{figure}
+Aquaponische Systeme sind von besonderem Interesse in der modernen Agrarwirtschaft, da sie eine Vielzahl von Problemen adressieren, die sich in der Moderne gesammelt haben. Dazu zählt unter anderem die Tatsache, dass gewisse Lebensmittel nur noch schwerlich aus der Gesellschaft wegzudenken, geschweige denn zu entfernen sind. Genau genommen nehmen die aquaponischen Systeme einen wichtigen Stellenwert ein. Sie verbinden die Problematik der Fischzucht und die der komplexen Agrarwirtschaft, indem sie die beiden Systeme vereinen, um eine "Pseudosymbiose" zu schaffen. Wie in Abbildung 3 zu erkennen ist, befinden sich bei den meisten Systemen die Pflanzcontainer über einem Fischzuchttank, wodurch auch die Wege zwischen den beiden Komponenten möglichst klein gehalten werden sollen. Die grundlegende Idee ist, zwischen dem Fauna- und Florateil ein sich ergänzendes System zu schaffen. Dies kann natürlich in unterschiedlichster Art und Weise geschehen. Frühe Modellversuche dazu verwenden allerdings die Annahme, dass die Pflanzen Nährstoffe bereitstellen, von denen gewisse Fischarten profitieren können. Die Fische wiederum übernehmen die Funktion der Aufbereitung des Nährwassers für die Pflanzen und sorgen somit auch auf lange Sicht für eine kontinuierlich bessere Wasserqualität. Dabei entstehen somit auch zwei Ressourcen, die genutzt werden können. Einerseits der Fisch, der meist essbar ist, oder andere Ressourcen wie beispielsweise Fischöl erzeugt und eben auch die Pflanzen, die mit dem Wasser aus den Faunatanks bewässert werden. Zusammenfassend lässt sich hierbei vor allem erkennen, dass der Fokus auf der Ersparnis der Energie zur Aufbereitung des Nutzwassers liegt. Aber auch andere Faktoren lassen sich so deutlich besser kontrollieren, um eine Einsparung zu realisieren. Derartige Systeme befinden sich von allen in dieser Arbeit behandelten Systemen noch in der frühesten Entwicklungsphase. Grund dafür ist die wesentlich höhere Komplexität, die mit etwaigen Systemen einhergehen muss. Denn es wird nicht nur nach einer grundsätzlichen Möglichkeit gesucht, sondern auch nach einer Art und Weise, die nach erfolgreicher Entwicklung auf einen Umfang skaliert werden kann, der klassische Anbaumethoden ablösen könnte.
+\subsubsection{Container-Farming}
+Im Vergleich zum aquaponischen Farming, welches wie bereits erwähnt einer Vielzahl von Faktoren und Problemen unterliegt, muss es auch Lösungen geben, die einfach umzusetzen sind. Dies ist vor allem dadurch zu begründen, dass solche Systeme weltweit zum Einsatz kommen sollen und somit an eine große Menge von Umgebungsbedingungen angepasst werden müssen. Dazu hat sich ein Ansatz entwickelt, bei dem vor allem der Fokus auf Skalierbarkeit gelegt werden soll. Dieser Ansatz wird im Allgemeinen als Container-Farming bezeichnet und beschreibt die Idee, kleine individuelle Einheiten zu schaffen, die sowohl einzeln als auch in einer großen Anzahl verwendet werden können, ohne große technische und standortbezogene Gegebenheiten verwenden zu müssen. Dabei werden alle notwendigen Systeme in dem Container verpackt und müssen autark funktionieren können. Dazu zählen Systeme wie Bewässerung, Stromversorgung für die Lampen, Sensortechnik und Rechner, die die Datenauswertung und Anpassungen vornehmen. Somit muss allerdings nicht nur eine Infrastruktur geschaffen werden, die die Funktionsfähigkeit des Containers innen erlaubt, sondern es muss eben auch ein System geben, welches eine hochskalierbare parallele Nutzung von etwaigen Containern erlaubt. Dazu muss beispielsweise ein Wasserleitungssystem gewährleistet sein, da es sich hierbei um eine Ressource handelt, die gezwungenermaßen von außerhalb des Containers kommen muss.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{thrive-container-farm-interior.jpg}
+    \caption{Container-Farm mit Infrastrukturelementen}
+    \label{fig:enter-label}
+\end{figure}
+\section{Biologische Grundlagen zum Projektteil}
+\textit{Der folgende Teil der Arbeit wurde in Zusammenarbeit mit \textbf{Lina Jähnig} vom \textbf{Institut für Biochemie und Biologie} an der Universität Potsdam verfasst um eine biologisch fundierte Grundlage zu schaffen.}
+\newpage
+
+\section{Projektteil - ML-basierte Transpirationsflächen-Bestimmung}
+Wie im vorherigen Kapitel erwähnt, ist die tatsächliche Transpirationsfläche der wohl stärkste Einfluss nehmende Faktor, wenn es um die Berechnung der theoretischen Wasseraufnahme geht. Die Wasseraufnahme ist für Vertical Farms von besonderer Relevanz. Wasser ist die Ressource, die nicht nur einer intensiven Aufbereitung bedarf, sondern sie ist auch meist mit größeren Kreislaufsystemen gekoppelt, die in sich auch wieder ressourcenaufwendig sind, viel Energie kosten und meist einer intensiven Wartung bedürfen. Daher ist es von besonderem Interesse, so wenig wie möglich an Wasser aufzuwenden, ohne große Einbußen am Ertrag der Nutzpflanze hinnehmen zu müssen. In Bezug auf Kapitel 2.1 ist die genauere Wasserkontrolle beispielsweise für die containerbasierten Vertical Farms von großem Nutzen. Wie bereits erwähnt, sind es eben diese Systeme, die zwar gut und vor allem sinnvoll skalierbar sind, aber eben einer gewissen Infrastruktur bedürfen, um ausreichend Wasser zur Verfügung zu stellen. \newline \par
+Um nun genauer bestimmen zu können, wie viel Wasser einer Pflanze zur Verfügung gestellt werden muss, beschäftigt sich dieses Projekt damit, Bilderkennung zu verwenden, um die Transpirationsfläche der Pflanze zu bestimmen, womit wiederum die genaue Wassermenge, die der Pflanze im Rahmen der Bewässerung zugeführt wird, genau abgestimmt werden kann. Ein Großteil der, wie im Kapitel 1 beschriebenen, landwirtschaftlichen Anbaumethoden bewässert unabhängig vom Wachstumsstadium die Pflanzen meist mit der gleichen Wassermenge. Ein Großteil dieses Wassers kommt somit allerdings nicht mit der Pflanze in Kontakt, beziehungsweise wird von dieser verwendet, sondern versickert meist viel eher im Boden und geht wieder ins Grundwasser ein. Somit ist die Energie, die zum Abpumpen und Gießen verwendet wurde, im Prinzip verschwendet gewesen. Dieses Problem möchten wir, wie im Folgenden beschrieben wird, umgehen, indem wir die zugeführte Wassermenge der Pflanze abhängig von der genauen Blattfläche machen.
+\subsection{Datensatz und Modellpflanze}
+Damit eine sinnvolle Implementierung eines Neuronalen Netzwerks erfolgen konnte, war die erste wichtige Aufgabenstellung gewesen, einen geeigneten Datensatz zu finden, der wie im Folgenden zum Trainieren und Validieren des Modells verwendet werden kann. Dazu fiel die Wahl auf den \textbf{V2 Plant Seedlings} Datensatz, der im Jahre 2019 von der \textbf{University of Pretoria} in Südafrika erstellt wurde. Der Datensatz umfasst vor allem Nutzpflanzen und beinhaltet eine Reihe von Bildern der jeweiligen Pflanzen in unterschiedlichen Entwicklungsstadien und vor allem Altern. Im Verlaufe des Projekts fiel darin die Wahl auf den Datensatz der Zuckerrübe. \newline \par
+Die Zuckerrübe ist seit langer Zeit hochgradig relevant als Nutzpflanze für den Menschen, da sie von Natur aus einen sehr hohen Gehalt an verschiedenen Zuckern hat. Unter diesen Zuckern befindet sich auch die Saccharose, welche besonders interessant ist für den Menschen, da es sich dabei um eine Mischform der klassischen Zuckersorten Glukose und Fruktose handelt. Es bedarf nur weniger Arbeitsschritte, um aus der Zuckerrübe nutzbaren klassischen Haushaltszucker herzustellen. Wie in Abbildung 5 gut zu erkennen ist, bilden Zuckerrüben eine typische Blattform. Ansonsten handelt es sich bei der Zuckerrübe um eine Rübenart, was bedeutet, dass sich nach einem bestimmten Entwicklungsstadium eine dicke wurzelartige Form bildet.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{276_Beta_vulgaris_L.jpg}
+    \caption{Zuckerrübe der Gattung Beta vulgaris}
+    \label{fig:enter-label}
+\end{figure} 
+\newline \par
+Der Datensatz beinhaltet Bilder der immer gleichen Größe und vor allem wurde darauf geachtet, das Bild auf einen gleichen Seitenabstand zwischen Blattrand und Bildrand zu schneiden. Dies bietet eine umso bessere Grundlage, um den Datensatz zum Trainieren eines neuronalen Netzes zu verwenden. Außerdem wurden die Bilder fast vollständig mit dem gleichen Hintergrund aufgenommen, was abermals eine Konsistenz schafft, die es dem Modell leichter macht, tatsächliche Features zu erkennen. Insgesamt umfasst der Datensatz 463 Bilder von unterschiedlichen Zuckerrüben-Setzlingen, womit ein ausreichend großer Datensatz für eine primitive regressive Bildanalyse vorliegt. In den Abbildungen 6, 7 und 8 sind drei Beispielbilder aus dem Trainingsdatensatz gezeigt, die die Setzlinge in den 3 grob relevantesten Phasen zeigen. Vorerst wird der Setzling aus dem Samenkorn nur sehr wenig Transpiration betreiben, da ein großteil der Energie noch aus dem Samenkorn stammt. Mit der weiteren Entwicklung jedoch steigt die Photosynthese massiv an und die Transpirationsfläche wächst nach dem Modell einer gedeckelten Exponentialfunktion an.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{4.png}
+    \caption{Frühe Pflanze (Alter 1-4 Tage)}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{60.png}
+    \caption{Pflanze kurz vor weiterem Blattwachstum (Alter 14-28 Tage)}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{444.png}
+    \caption{Weitere Blätter entstanden (Alter 30 Tage+)}
+    \label{fig:enter-label}
+\end{figure}
+\subsection{Theoretische Grundlage}
+Um eine Regressionsanalyse, also eine Zahl als Ausgabe des Neuronalen Netzwerks zu erhalten, muss vorerst geklärt werden, ob sich ein derartiges Problem überhaupt eignet, um mit einem Neuronalen Netzwerk gelöst zu werden. Dies wird aber relativ schnell klar ab dem Zeitpunkt, wenn man mit Bildern als Eingabedaten arbeitet. Der Grund dafür ist, dass Bilder einen sehr großen Eingabevektor bilden, da sie sowohl x- und y-Koordinaten als auch RGB-Werte in Form von Ganzzahlen zwischen 0 und 255 besitzen. 
+\[r, g, b \in \mathbb{N}\] für \[0 \leq r, g, b \leq 255\].
+So würde sich ein Eingabevektor der Größe
+\[G = S_x * S_y * r * g * b\] bilden, der aufgrund seiner extremen Größe sich kaum für klassische deterministische Algorithmen eignet. 
+Dabei sind:
+\begin{itemize}
+    \item $S_x$ die Größe des Bildes an der x-Achse,
+    \item $S_y$ die Größe des Bildes an der y-Achse,
+    \item $r$ Grundfarbwert für Rot,
+    \item $g$ Grundfarbwert für Grün,
+    \item $b$ Grundfarbwert für Blau
+\end{itemize}
+\subsubsection{Neuronale Netze}
+
+Neuronale Netze sind ein Modell des maschinellen Lernens, das von der Struktur und Funktionsweise biologischer Nervensysteme inspiriert ist. Sie bestehen aus künstlichen Neuronen, die in Schichten organisiert sind: einer Eingabeschicht, einer oder mehreren versteckten Schichten und einer Ausgabeschicht. Jedes Neuron verarbeitet Eingaben, gewichtet sie und gibt ein Signal weiter, das durch eine Aktivierungsfunktion transformiert wird.
+Ein Neuron in einem künstlichen neuronalen Netzwerk wird durch eine gewichtete Summe seiner Eingaben aktiviert, gefolgt von einer Aktivierungsfunktion:
+
+\begin{equation}
+    z = \sum_{i=1}^{n} w_i x_i + b
+\end{equation}
+
+Dabei sind:
+\begin{itemize}
+    \item $x_i$ die Eingaben des Neurons,
+    \item $w_i$ die entsprechenden Gewichte,
+    \item $b$ der Bias-Wert,
+    \item $n$ die Anzahl der Eingaben.
+\end{itemize}
+
+Die Aktivierung erfolgt dann durch eine nichtlineare Aktivierungsfunktion $\sigma(z)$, zum Beispiel die Sigmoid-Funktion:
+
+\begin{equation}
+    a = \sigma(z) = \frac{1}{1 + e^{-z}}
+\end{equation}
+
+Andere gängige Aktivierungsfunktionen sind die ReLU-Funktion:
+
+\begin{equation}
+    a = \max(0, z)
+\end{equation}
+
+und der hyperbolische Tangens:
+
+\begin{equation}
+    a = \tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}
+\end{equation}
+\subsection{Spezielles Modell zur Analyse von Bildern}
+Über die letzten Jahre haben sich durch den massiven Aufschwung des Forschungsinteresses eine Vielzahl von neuronalen Netzarchitekturen gebildet, die sich meistens für bestimmte Zwecke besonders gut eignen.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{1_-FR6rFrKXktjxwDTlGofPQ.png}
+    \caption{Aufteilung des Neuronalen Netzes in Feature Extraction und Classification}
+    \label{fig:enter-label}
+\end{figure}

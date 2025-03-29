@@ -1,0 +1,48 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[german]{babel}
+\usepackage{minted}
+\usepackage{amssymb}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[backend=bibtex, sorting=none]{biblatex}
+\bibliography{sample}
+
+\begin{document}
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.5\textwidth]{uplogo.png}\par\vspace{1cm}
+	{\scshape\LARGE Universität Potsdam \par}
+    {\scshape\LARGE Mathematisch-Naturwissenschaftliche Fakultät \par}
+	\vspace{1cm}
+    {\scshape\Large Seminararbeit\par}
+	{\scshape\Large Künstliche Intelligenz in der Bioökonomie\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Evaluation of Scaling and Machine Learning Approaches for
+Age Estimation in Vertical Farming\par}
+	\vspace{2cm}
+	{\Large\itshape Sten Heimbrodt\par}
+	\vfill
+	supervised by\par
+	Prof. Dr. Marina Höhne
+
+	\vfill
+
+% Bottom of the page
+\end{titlepage}
+
+
+
+\include{content}
+\printbibliography
+
+\end{document}
