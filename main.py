@@ -9,6 +9,9 @@ from torch.utils.data import Dataset, DataLoader
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
+def get_size_from_filename(filename):
+    return float(filename.split(".")[0].split("_")[1])
+
 class LeafAgeDataset(Dataset):
     def __init__(self, image_folder):
         self.image_folder = image_folder
@@ -26,7 +29,7 @@ class LeafAgeDataset(Dataset):
         img = Image.open(os.path.join(self.image_folder, file))
         img_tensor = self.transform(img)
 
-        age = float(file.split(".")[0].split("_")[1])
+        age = get_size_from_filename(file)
         return img_tensor, torch.tensor([age], dtype=torch.float32)
 
 
@@ -57,10 +60,11 @@ class AgePredictionCNN(nn.Module):
         return self.fc_layers(x)
 
 model = AgePredictionCNN().to(device)
+print(model)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-num_epochs = 200
+num_epochs = 5
 print(torch.cuda.is_available())
 for epoch in range(num_epochs):
     epoch_loss = 0.0
@@ -95,7 +99,7 @@ def predict_image(image_name):
     with torch.no_grad():
         predicted_age = model(image_tensor).item()
 
-    print(f"Predicted transpiration area for the image {image_name}: {predicted_age:.2f}")
+    print(f"Predicted transpiration area for the image {image_name}: {predicted_age:.2f} real transpiration area: {get_size_from_filename(image_name)}")
 
 predict_image("_5_15.png")
 predict_image("_18_5.png")
