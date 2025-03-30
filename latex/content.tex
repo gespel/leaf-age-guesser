@@ -54,15 +54,15 @@ Wie im vorherigen Kapitel erwähnt, ist die tatsächliche Transpirationsfläche 
 Um nun genauer bestimmen zu können, wie viel Wasser einer Pflanze zur Verfügung gestellt werden muss, beschäftigt sich dieses Projekt damit, Bilderkennung zu verwenden, um die Transpirationsfläche der Pflanze zu bestimmen, womit wiederum die genaue Wassermenge, die der Pflanze im Rahmen der Bewässerung zugeführt wird, genau abgestimmt werden kann. Ein Großteil der, wie im Kapitel 1 beschriebenen, landwirtschaftlichen Anbaumethoden bewässert unabhängig vom Wachstumsstadium die Pflanzen meist mit der gleichen Wassermenge. Ein Großteil dieses Wassers kommt somit allerdings nicht mit der Pflanze in Kontakt, beziehungsweise wird von dieser verwendet, sondern versickert meist viel eher im Boden und geht wieder ins Grundwasser ein. Somit ist die Energie, die zum Abpumpen und Gießen verwendet wurde, im Prinzip verschwendet gewesen. Dieses Problem möchten wir, wie im Folgenden beschrieben wird, umgehen, indem wir die zugeführte Wassermenge der Pflanze abhängig von der genauen Blattfläche machen.
 \subsection{Datensatz und Modellpflanze}
 Damit eine sinnvolle Implementierung eines Neuronalen Netzwerks erfolgen konnte, war die erste wichtige Aufgabenstellung gewesen, einen geeigneten Datensatz zu finden, der wie im Folgenden zum Trainieren und Validieren des Modells verwendet werden kann. Dazu fiel die Wahl auf den \textbf{V2 Plant Seedlings} Datensatz, der im Jahre 2019 von der \textbf{University of Pretoria} in Südafrika erstellt wurde. Der Datensatz umfasst vor allem Nutzpflanzen und beinhaltet eine Reihe von Bildern der jeweiligen Pflanzen in unterschiedlichen Entwicklungsstadien und vor allem Altern. Im Verlaufe des Projekts fiel darin die Wahl auf den Datensatz der Zuckerrübe. \newline \par
-Die Zuckerrübe ist seit langer Zeit hochgradig relevant als Nutzpflanze für den Menschen, da sie von Natur aus einen sehr hohen Gehalt an verschiedenen Zuckern hat. Unter diesen Zuckern befindet sich auch die Saccharose, welche besonders interessant ist für den Menschen, da es sich dabei um eine Mischform der klassischen Zuckersorten Glukose und Fruktose handelt. Es bedarf nur weniger Arbeitsschritte, um aus der Zuckerrübe nutzbaren klassischen Haushaltszucker herzustellen. Wie in Abbildung 5 gut zu erkennen ist, bilden Zuckerrüben eine typische Blattform. Ansonsten handelt es sich bei der Zuckerrübe um eine Rübenart, was bedeutet, dass sich nach einem bestimmten Entwicklungsstadium eine dicke wurzelartige Form bildet.
+Die Zuckerrübe ist seit langer Zeit hochgradig relevant als Nutzpflanze für die Menschheit, da sie von Natur aus einen sehr hohen Gehalt an verschiedenen Zuckern hat. Unter diesen Zuckern befindet sich auch die Saccharose, welche besonders interessant ist für den Menschen, da es sich dabei um eine Mischform der klassischen Zuckersorten Glukose und Fruktose handelt. Es bedarf nur weniger Arbeitsschritte, um aus der Zuckerrübe nutzbaren klassischen Haushaltszucker herzustellen. Wie in Abbildung 5 gut zu erkennen ist, bilden Zuckerrüben eine typische Blattform. Ansonsten handelt es sich bei der Zuckerrübe um eine Rübenart, was bedeutet, dass sich nach einem bestimmten Entwicklungsstadium eine dicke wurzelartige Form bildet.
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{276_Beta_vulgaris_L.jpg}
+    \includegraphics[width=0.4\linewidth]{276_Beta_vulgaris_L.jpg}
     \caption{Zuckerrübe der Gattung Beta vulgaris}
     \label{fig:enter-label}
 \end{figure} 
 \newline \par
-Der Datensatz beinhaltet Bilder der immer gleichen Größe und vor allem wurde darauf geachtet, das Bild auf einen gleichen Seitenabstand zwischen Blattrand und Bildrand zu schneiden. Dies bietet eine umso bessere Grundlage, um den Datensatz zum Trainieren eines neuronalen Netzes zu verwenden. Außerdem wurden die Bilder fast vollständig mit dem gleichen Hintergrund aufgenommen, was abermals eine Konsistenz schafft, die es dem Modell leichter macht, tatsächliche Features zu erkennen. Insgesamt umfasst der Datensatz 463 Bilder von unterschiedlichen Zuckerrüben-Setzlingen, womit ein ausreichend großer Datensatz für eine primitive regressive Bildanalyse vorliegt. In den Abbildungen 6, 7 und 8 sind drei Beispielbilder aus dem Trainingsdatensatz gezeigt, die die Setzlinge in den 3 grob relevantesten Phasen zeigen. Vorerst wird der Setzling aus dem Samenkorn nur sehr wenig Transpiration betreiben, da ein großteil der Energie noch aus dem Samenkorn stammt. Mit der weiteren Entwicklung jedoch steigt die Photosynthese massiv an und die Transpirationsfläche wächst nach dem Modell einer gedeckelten Exponentialfunktion an.
+Der Datensatz beinhaltet Bilder der immer gleichen Größe und vor allem wurde darauf geachtet, das Bild auf einen gleichen Seitenabstand zwischen Blattrand und Bildrand zu schneiden. Dies bietet eine umso bessere Grundlage, um den Datensatz zum Trainieren eines neuronalen Netzes zu verwenden. Außerdem wurden die Bilder fast vollständig mit dem gleichen Hintergrund aufgenommen, was abermals eine Konsistenz schafft, die es dem Modell leichter macht, tatsächliche Features zu erkennen. Insgesamt umfasst der Datensatz 463 Bilder von unterschiedlichen Zuckerrüben-Setzlingen, womit ein ausreichend großer Datensatz für eine primitive regressive Bildanalyse vorliegt. In den Abbildungen 6, 7 und 8 sind drei Beispielbilder aus dem Trainingsdatensatz gezeigt, die die Setzlinge in den drei grob relevantesten Phasen zeigen. Vorerst wird der Setzling aus dem Samenkorn nur sehr wenig Transpiration betreiben, da ein Großteil der Energie noch aus dem Samenkorn stammt. Mit der weiteren Entwicklung jedoch steigt die Photosynthese massiv an und die Transpirationsfläche wächst nach dem Modell einer gedeckelten Exponentialfunktion an. Die Transpirationsfläche wurde von zwei Personen anhand der Bilder schätzungsweise gebildet und entsprechend als Datenpunkt für das spätere Training vermerkt.
 \begin{figure}
     \centering
     \includegraphics[width=0.6\linewidth]{4.png}
@@ -83,9 +83,9 @@ Der Datensatz beinhaltet Bilder der immer gleichen Größe und vor allem wurde d
 \end{figure}
 \subsection{Theoretische Grundlage}
 Um eine Regressionsanalyse, also eine Zahl als Ausgabe des Neuronalen Netzwerks zu erhalten, muss vorerst geklärt werden, ob sich ein derartiges Problem überhaupt eignet, um mit einem Neuronalen Netzwerk gelöst zu werden. Dies wird aber relativ schnell klar ab dem Zeitpunkt, wenn man mit Bildern als Eingabedaten arbeitet. Der Grund dafür ist, dass Bilder einen sehr großen Eingabevektor bilden, da sie sowohl x- und y-Koordinaten als auch RGB-Werte in Form von Ganzzahlen zwischen 0 und 255 besitzen. 
-\[r, g, b \in \mathbb{N}\] für \[0 \leq r, g, b \leq 255\].
+\[r, g, b \in \mathbb{N}\] für \[0 \leq r, g, b \leq 255\]
 So würde sich ein Eingabevektor der Größe
-\[G = S_x * S_y * r * g * b\] bilden, der aufgrund seiner extremen Größe sich kaum für klassische deterministische Algorithmen eignet. 
+\[G = S_x * S_y * r * g * b\] bilden, der aufgrund seiner extremen Größe kaum für klassische deterministische Algorithmen geeignet ist. 
 Dabei sind:
 \begin{itemize}
     \item $S_x$ die Größe des Bildes an der x-Achse,
@@ -122,17 +122,226 @@ Andere gängige Aktivierungsfunktionen sind die ReLU-Funktion:
 \begin{equation}
     a = \max(0, z)
 \end{equation}
-
 und der hyperbolische Tangens:
 
 \begin{equation}
     a = \tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}
 \end{equation}
-\subsection{Spezielles Modell zur Analyse von Bildern}
-Über die letzten Jahre haben sich durch den massiven Aufschwung des Forschungsinteresses eine Vielzahl von neuronalen Netzarchitekturen gebildet, die sich meistens für bestimmte Zwecke besonders gut eignen.
+\subsection{Neuronale Modellkomposition}
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{1_-FR6rFrKXktjxwDTlGofPQ.png}
     \caption{Aufteilung des Neuronalen Netzes in Feature Extraction und Classification}
     \label{fig:enter-label}
 \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{1-s2.0-S1047320322002280-gr2.jpg}
+    \caption{Faltungsfilterung zur Regressionsanalyse}
+    \label{fig:enter-label}
+\end{figure}
+Über die letzten Jahre haben sich durch den massiven Aufschwung des Forschungsinteresses eine Vielzahl von neuronalen Netzarchitekturen gebildet, die sich meistens für bestimmte Zwecke besonders gut eignen. Bei der Bildanalyse hat sich aus der Vergangenheit gezeigt, dass es sehr sinnvoll ist, das Analysemodell in zwei grundlegende Teile zu unterscheiden. So wird das Modell in einen Teil für die Merkmalserkennung und einen Teil für die tatsächliche Gewichtung der Merkmale hin zu einer Regressionsanalyse strukturiert. Eine Faltung lässt sich im Prinzip sehr gut erklären, wenn man sich der Parallele zur tatsächlichen Pixeleinheit bewusst wird. Bei einer Faltung wird nun nicht einfach der Pixelwert in die nächste Instanz übertragen, sondern es wird viel eher der Kontext, also der Wert der umliegenden Pixel mit in die Auswertung einbezogen. Dadurch entsteht eine Kontextualität, welche dazu führt, dass bestimmte Features anders erscheinen, als sie es im ursprünglichen Bild getan hätten. Schemenhaft ist das Ganze in Abbildung 9 zu erkennen. Wichtig ist hierbei zu erwähnen, dass Features nicht nur auf einer Ebene direkt erkannt werden, sondern vielmehr ein Zusammenwirken von mehreren Faltungslayern ist. \cite{ZOU2024107839} Dabei kann man sich die Analogie vorstellen, dass auf frühen Layern erst einmal nur abstrakte Features erkannt werden. Beispielsweise bei einer theoretischen Erkennung von einem Menschen werden zunächst alle Gliedmaßen beurteilt, ohne jedoch einen korrekten Zusammenhang eines Körpers feststellen zu können. Erst auf späteren Faltungslayern wird dann sichergestellt, ob sich die jeweiligen Gliedmaßen auch an der richtigen Stelle befinden. Ähnliches ist auch für den untersuchten Datensatz von Relevanz. Dabei kann durch die Faltung ein Blatt identifiziert werden. Somit kann schon leicht quantifiziert werden, wie viele Blätter die Pflanze hat, was wiederum offensichtlich mit der Transpirationsoberfläche der Pflanze korreliert. Zusätzlich korreliert natürlich auch die Transpirationsfläche mit dem Alter der Pflanze. Dies wird im späteren Kapitel dieser Arbeit behandelt. \newline \par
+Abbildung 10 zeigt eine sehr typische Bildanalyse, welche allerdings sehr gut in das Bild dieser Arbeit passt, da im Gegensatz zu Abbildung 9 hier keine Klassifikation verwendet wird, sondern vielmehr eine Regression. Modellhaft ist es genau diese Architektur, die auch bei diesem Projekt verwendet wurde. Auch der Übergang zwischen Faltungsanteil und voll verbundenen Layern ist sehr ähnlich gestaltet. Dabei wird im Prinzip ein flacher Feature-Vektor übergeben, welcher dann vom linearen Teil "interpretiert" wird.
+\newline \par
+Das Modell, welches für dieses Projekt verwendet wurde, besteht aus insgesamt 7 Layern. Drei der Layer befinden sich im Teil der faltungsbasierten Filterung. Die restlichen 4 Layer der linearen vollverbundenen neuronalen Netzlayer befinden sich im Regressionsteil, in dem bei einem 1024-elementigen Eingabevektor in das erste Layer eingegeben wird. Das nächste Layer besitzt allerdings nur noch 64 Neuronen, das darauf folgende 32 Neuronen und das vorletzte nur noch 16 Neuronen. Schließlich befindet sich im letzten Layer des Modells nur noch ein Neuron, welches unsere Regressionsausgabe bildet. Die realwertige Ausgabezahl entspricht somit der Schätzung für die abgebildete Transpirationsfläche.
+\subsection{Implementierung}
+Für die Implementierung des Neuronalen Netzes wurde im Rahmen dieser Arbeit das Framework PyTorch ausgewählt. PyTorch zeichnet sich vor allem durch seine Performance und extrem gute Bedienbarkeit aus. Außerdem ist es mittlerweile sehr weit verbreitet und wird von vielen der aktuellen Forschungsprojekte wie zum Beispiel den Sprachmodellen von DeepSeek R1 verwendet. Zudem ist die Community um das Open Source Projekt sehr aktiv und bildet eine große fortschrittliche Gemeinschaft.
+\subsubsection{Modellquellcode}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{Screenshot 2025-03-30 164658.png}
+    \caption{Modellquellcode für die Regressionsanalyse}
+    \label{fig:enter-label}
+\end{figure}
+In Abbildung 11 ist der vollständige Quellcode für das verwendete Modell zu sehen. Dazu sei kurz erwähnt, dass ich PyTorch die entsprechende Syntax zum Anlegen von Netzwerk-Layern extrem einfach finde. Letztendlich werden in Klassenkomponenten Listen angelegt, in denen eine Reihe aus intrinsischen Objekten liegen, in denen wiederum die einzelnen Layer definiert werden. Schlussendlich muss nur eine \textbf{forward} Funktion definiert werden. Mit dieser findet somit die letztliche Inferenz statt. Dabei ist bemerkenswert, wie einfach die Syntax gehalten werden kann, obgleich die Expressivität davon unberührt bleibt. So ist es den Entwicklern auch ein leichtes, an den Modellparametern zu variieren, ohne große syntaktische Hürden bewältigen zu müssen. Insgesamt kann so auch die Entwicklungsgeschwindigkeit von Machine Learning Modellen gesteigert werden.
+
+\subsubsection{Trainingsimplementierung und Trainingserfolg}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{loss.png}
+    \caption{Verlust nach Epoche des Trainings}
+    \label{fig:enter-label}
+\end{figure}
+Zum Trainieren des Neuronalen Netzes wurden ebenfalls PyTorch-intrinsische Funktionen verwendet. Es wurde die Methode des \textbf{überwachten Lernes} verwendet. Bei dieser Methode werden gelabelte Daten verwendet. Dies bedeutet, dass dem Modell stets zu jedem Datenvektor die korrekte Transpirationsfläche mit angegeben wurde, damit diese beim Berechnen des Fehlers berücksichtigt werden können und das Netz entsprechend angepasst wird.
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Screenshot 2025-03-30 171125.png}
+    \caption{Trainingsalgorithmus}
+    \label{fig:enter-label}
+\end{figure}
+In Abbildung 13 ist die Implementierung des entsprechenden Trainingsalgorithmus zu sehen. Um die visuelle Verständlichkeit während des Trainingsvorgangs zu verbessern, wurde aus der \textbf{TQDM} Bibliothek die Funktion zum Darstellen von Ladebalken in CLI-Umgebungen verwendet. Als Optimierer wurde aufgrund der breiten Anwendung die \textbf{Adam Optimizer} gewählt.
+\subsection{Verwendete Hardware und Laufzeit}
+Für das Projekt wurde ein Server mit einem 16-Kern AMD Ryzen 3950X und einer NVIDIA GTX 1080 Ti verwendet. Der Prozessor hat 32 Hardwarethreads zur Verfügung und die Grafikkarte hat mittels ihrer 3584 Cuda-Kerne gerechnet. Beide Komponenten sind wassergekühlt, um eine möglichst temperaturunabhängige Leistungsabgabe zu gewährleisten. Insgesamt wurde das Modell auf 1000 Epochen trainiert. Das Training hatte eine Gesamtlaufzeit von ca. 33 Minuten.
+\section{Fazit}
+Ziel dieser Arbeit war es, mittels Bildanalyse eine geeignete Metrik zu finden, um den Wasserbedarf einer Zuckerrübenpflanze zu bestimmen. Dazu war das Ziel, den Wasserverbrauch möglichst genau auf den tatsächlichen Transpirationsbedarf der jeweiligen Pflanze anzupassen. Hierbei wurde ein entsprechender Datensatz gewählt, welcher konsistent und themenbezogen war. Es konnte nachgewiesen werden, dass mit einer genügenden Datenlage und entsprechender Trainingshardware sowie dem entsprechenden Modell eines neuronalen Netzes durchaus eine gute Einschätzung der Transpirationsfläche erstellbar ist. Die Transpirationsfläche ist stochastisch wiederum an das Alter der Pflanze gekoppelt, womit eine zusätzliche Metrik erhoben werden kann. Zu beachten ist es allerdings, dass es sich dabei um ein theoretisches Alter nach dauerhaftem Wachstum handelt. Da es sich bei der Wasseraufnahme und dem Wasserverbrauch ohnehin um natürlich bedingte stochastische Prozesse handelt, ist der Fehler für die Erhebung der benötigten Wassermenge durchaus als trivial zu bewerten.
+\section{Ausblick}
+In der Suche nach einem Anschluss an diese Arbeit ist ohnehin die Verbesserung der Datenlage der primäre Anhaltspunkt. Einerseits wären mehr Bilder von den Setzlingen besser, um die Genauigkeit zu erhöhen, und andererseits wäre es von großem Nutzen, die Messung der Transpirationsfläche der Trainingsdaten mit einem besseren Verfahren als der subjektiven Schätzung zweier Personen durchzuführen. Problematisch ist hierbei einerseits der menschliche Bias bei der Einschätzung von Größen, aber auch die Kontextabhängigkeit. Außerdem wäre ein passendes Experiment denkbar, bei dem von dem beschriebenen Modell dieser Arbeit ausgegangen wird, um die benötigte Wassermenge zu bestimmen. Dieses Ergebnis könnte man daraufhin ggf. mit anderen Modellen oder Algorithmen bzw. klassischen approximativen Methoden vergleichen.
+\newpage
+\section{Quelltext}
+\subsection{train.py}
+\begin{minted}[mathescape, linenos]{python}
+import os
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from PIL import Image
+import torchvision.transforms as transforms
+from torch.utils.data import Dataset, DataLoader
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
+
+def get_size_from_filename(filename):
+    return float(filename.split(".")[0].split("_")[1])
+
+class LeafAgeDataset(Dataset):
+    def __init__(self, image_folder):
+        self.image_folder = image_folder
+        self.files = os.listdir(image_folder)
+        self.transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+        ])
+
+    def __len__(self):
+        return len(self.files)
+
+    def __getitem__(self, idx):
+        file = self.files[idx]
+        img = Image.open(os.path.join(self.image_folder, file))
+        img_tensor = self.transform(img)
+
+        age = get_size_from_filename(file)
+        return img_tensor, torch.tensor([age], dtype=torch.float32)
+
+
+dataset = LeafAgeDataset("destination_images")
+dataloader = DataLoader(dataset, batch_size=16, shuffle=True)
+
+
+class AgePredictionCNN(nn.Module):
+    def __init__(self):
+        super(AgePredictionCNN, self).__init__()
+        self.conv_layers = nn.Sequential(
+            nn.Conv2d(3, 32, kernel_size=3, stride=1, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),
+            nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(64, 64, kernel_size=3, stride=1, padding=1),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d((4, 4))
+        )
+        self.fc_layers = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(64 * 4 * 4, 64),
+            nn.ReLU(),
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.Linear(32, 16),
+            nn.ReLU(),
+            nn.Linear(16, 1)
+        )
+
+    def forward(self, x):
+        x = self.conv_layers(x)
+        return self.fc_layers(x)
+
+model = AgePredictionCNN().to(device)
+print(model)
+criterion = nn.MSELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+num_epochs = 1000
+print(torch.cuda.is_available())
+
+from tqdm import tqdm
+
+for epoch in range(num_epochs):
+    epoch_loss = 0.0
+    progress_bar = tqdm(dataloader, desc=f"Epoch {epoch + 1}/{num_epochs}", leave=True)
+
+    for images, labels in progress_bar:
+        images, labels = images.to(device), labels.to(device)
+        optimizer.zero_grad()
+        predictions = model(images)
+        loss = criterion(predictions, labels)
+        loss.backward()
+        optimizer.step()
+        epoch_loss += loss.item()
+
+        progress_bar.set_postfix(loss=epoch_loss / (progress_bar.n + 1))
+
+    #print(f"\nEpoch {epoch + 1}/{num_epochs}, Loss: {epoch_loss / len(dataloader):.4f}\n")
+
+torch.save(model, "model.pth")
+print("Training abgeschlossen!")
+\end{minted}
+\subsection{test.py}
+\begin{minted}[mathescape, linenos]{python}
+import os
+
+import torch
+from PIL import Image
+from torch import device, nn
+from torchvision import transforms
+
+class AgePredictionCNN(nn.Module):
+    def __init__(self):
+        super(AgePredictionCNN, self).__init__()
+        self.conv_layers = nn.Sequential(
+            nn.Conv2d(3, 32, kernel_size=3, stride=1, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),
+            nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(64, 64, kernel_size=3, stride=1, padding=1),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d((4, 4))
+        )
+        self.fc_layers = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(64 * 4 * 4, 64),
+            nn.ReLU(),
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.Linear(32, 16),
+            nn.ReLU(),
+            nn.Linear(16, 1)
+        )
+
+    def forward(self, x):
+        x = self.conv_layers(x)
+        return self.fc_layers(x)
+def get_size_from_filename(filename):
+    return float(filename.split(".")[0].split("_")[1])
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
+
+model = torch.load("model.pth", map_location=device)
+model.eval()
+
+def predict_image(image_name):
+    image_path = os.path.join("test_images", image_name)
+
+    image = Image.open(image_path)
+
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+    ])
+
+    image_tensor = transform(image).unsqueeze(0).to(device)
+
+    model.eval()
+
+    with torch.no_grad():
+        predicted_age = model(image_tensor).item()
+
+    print(f"Predicted transpiration area for the image {image_name}: {predicted_age:.2f} real transpiration area: {get_size_from_filename(image_name)}")
+
+for image in os.listdir("test_images"):
+    predict_image(image)
+\end{minted}
+Das gesamte Projekt liegt in dem persönlichen GitHub-Repository von Sten Heimbrodt unter \newline\hyperlink{https://github.com/gespel/leaf-age-guesser}{https://github.com/gespel/leaf-age-guesser}

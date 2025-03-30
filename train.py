@@ -46,13 +46,19 @@ class AgePredictionCNN(nn.Module):
             nn.MaxPool2d(2, 2),
             nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1),
             nn.ReLU(),
+            nn.Conv2d(64, 64, kernel_size=3, stride=1, padding=1),
+            nn.ReLU(),
             nn.AdaptiveAvgPool2d((4, 4))
         )
         self.fc_layers = nn.Sequential(
             nn.Flatten(),
             nn.Linear(64 * 4 * 4, 64),
             nn.ReLU(),
-            nn.Linear(64, 1)
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.Linear(32, 16),
+            nn.ReLU(),
+            nn.Linear(16, 1)
         )
 
     def forward(self, x):
@@ -64,11 +70,16 @@ print(model)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-num_epochs = 5
+num_epochs = 1000
 print(torch.cuda.is_available())
+
+from tqdm import tqdm
+
 for epoch in range(num_epochs):
     epoch_loss = 0.0
-    for images, labels in dataloader:
+    progress_bar = tqdm(dataloader, desc=f"Epoch {epoch + 1}/{num_epochs}", leave=True)
+
+    for images, labels in progress_bar:
         images, labels = images.to(device), labels.to(device)
         optimizer.zero_grad()
         predictions = model(images)
@@ -77,32 +88,10 @@ for epoch in range(num_epochs):
         optimizer.step()
         epoch_loss += loss.item()
 
-    print(f"Epoch {epoch + 1}/{num_epochs}, Loss: {epoch_loss / len(dataloader):.4f}")
+        progress_bar.set_postfix(loss=epoch_loss / (progress_bar.n + 1))
 
+    #print(f"\nEpoch {epoch + 1}/{num_epochs}, Loss: {epoch_loss / len(dataloader):.4f}\n")
+
+torch.save(model, "model.pth")
 print("Training abgeschlossen! 🚀")
 
-
-def predict_image(image_name):
-    image_path = os.path.join("test_images", image_name)
-
-    image = Image.open(image_path)
-
-    transform = transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
-    ])
-
-    image_tensor = transform(image).unsqueeze(0).to(device)
-
-    model.eval()
-
-    with torch.no_grad():
-        predicted_age = model(image_tensor).item()
-
-    print(f"Predicted transpiration area for the image {image_name}: {predicted_age:.2f} real transpiration area: {get_size_from_filename(image_name)}")
-
-predict_image("_5_15.png")
-predict_image("_18_5.png")
-predict_image("_31_2.png")
-predict_image("_240.png")
-predict_image("_140_2.png")
