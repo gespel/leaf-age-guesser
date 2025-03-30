@@ -59,6 +59,10 @@ def predict_image(image_name):
         predicted_age = model(image_tensor).item()
 
     print(f"Predicted transpiration area for the image {image_name}: {predicted_age:.2f} real transpiration area: {get_size_from_filename(image_name)}")
+    return predicted_age, get_size_from_filename(image_name)
+
+out = []
 
 for image in os.listdir("test_images"):
-    predict_image(image)
+    out.append(predict_image(image))
+print(out)
