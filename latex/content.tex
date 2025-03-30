@@ -47,6 +47,28 @@ Im Vergleich zum aquaponischen Farming, welches wie bereits erwähnt einer Vielz
 \end{figure}
 \section{Biologische Grundlagen zum Projektteil}
 \textit{Der folgende Teil der Arbeit wurde in Zusammenarbeit mit \textbf{Lina Jähnig} vom \textbf{Institut für Biochemie und Biologie} an der Universität Potsdam verfasst um eine biologisch fundierte Grundlage zu schaffen.}
+\subsection{Wassertransport in der Pflanze}
+Die Wasseraufnahme der Pflanze findet im Allgemeinen an der Wurzel bzw. der Wurzelspitze statt. Der Grund dafür ist, dass das Wasser an den Zellen der Wurzel ungehindert diffundieren kann. Das Wasser fließt daraufhin weiter in den Zentralzylinder im Wurzelschaft. Dort befinden sich die Gefäßelemente des Xylems. Das Xylem wiederum transportiert das Wasser von der Wurzel in die Blätter. Dies geschieht mit der sogenannten Massenströmung. Haupttreiber des Wasserflusses ist das Druckgefälle zwischen Blatt und Wurzel. Dabei besteht im Blatt ein Unterdruck im Verhältnis zum unteren Teil der Pflanze. Einerseits besteht der sogenannte Wurzeldruck, welcher das Wasser nach oben drückt, und andererseits ziehen die Blätter mittels des sogenannten Transpirationssogs das Wasser in die oberen Teile der Pflanze. \cite{urry2019}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{154381_10_De_34_Fig1_HTML.png}
+    \caption{Beispielhafter Wassertransport}
+    \label{fig:enter-label}
+\end{figure}
+\subsection{Blattaufbau}
+Die im Rahmen dieses Projekts behandelte Pflanze ist ein sogenannter Kormophyt. Dies sind alle höheren Pflanzen mit den folgenden 3 Grundorganen. Der \textbf{Wurzel}, der \textbf{Sproßachse} und das hier relevante seitliche Anhangsorgan, den \textbf{Blättern}. Die Blätter sind der zentrale Ort der Photosynthese und der Transpiration. Sie treten in vielen verschiedenen Formen und Varianten auf. Am häufigsten findet man das sogenannte bifaciale, dorsiventrale Laubblatt. Das bedeutet, die Ober- und Unterseite des Blattes sind morphologisch verschieden. Es existieren viele Sonderformen und Anpassungen an Umweltfaktoren.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Bildschirmfoto vom 2025-03-30 19-59-09.png}
+    \caption{Querschnitt eines Laubblattes}
+    \label{fig:enter-label}
+\end{figure}
+\subsubsection{Evolutionärer Hintergrund}
+Das Blatt stellt einen evolutionären Vorteil gegenüber anderen photosynthesebetreibenden Organismen dar. Landpflanzen vergrößerten ihre Blätter im Wettbewerb um Ressourcen, denn der Vorteil größerer und breiterer Blattflächen liegt in erhöhter Energieaufnahme über die Lichtabsorption. Der Nachteil jedoch ist ein erhöhtes Aufkommen von Evaporation.
+\subsection{Wasser als grundlegende Ressource}
+Ohne Wasser ist es Pflanzen im Allgemeinen nicht möglich, Fotosynthese zu betreiben, da ohne diese keine Reduktion des Kohlenstoffs stattfinden kann. Insbesondere bei Pflanzen ohne sekundäres Dickenwachstum, wie der hier relevanten Zuckerrübe, erhält der Wasserdruck in den Zellen die Ausformung der Pflanzenstruktur aufrecht. 
+\subsection{Wasserabgabe}
+Pflanzen geben über alle Oberflächen Wasserdampf ab. Am meisten über die Spaltöffnungen der fotosynthetischen Organe. Landpflanzen unterliegen einer besonders starken Transpirationsbeanspruchung, weshalb die entsprechende Wasserzufuhr von außen gewährleistet sein muss. Die Wasserabgabe wird reguliert, indem die Schließzellen der Spaltöffnungen sensibel auf Wasserverlust reagieren. Junge Blätter transpirieren im Allgemeinen mehr Wasser als alte Blätter, da ihr wachsartiger Verdunstungsschutz, die Kutikula, weniger stark ausgebildet ist. Zudem wird die Transpiration durch äußere Faktoren begünstigt, wie beispielsweise die Luftfeuchtigkeit und Temperatur. Die Transpirationsrate kann außerdem auch über die Fläche des Blattes approximiert werden. Dazu wurden bisher aufwendige Versuche durchgeführt, in denen mittels chemisch-physikalischer Untersuchungen die Transpiration gemessen wird. Derartige Systeme haben allerdings den Nachteil, dass nur ein relativ kleiner Bereich in die Messung einfließen kann. Diese Arbeit stellt also einen alternativen Ansatz vor, um die Anwendung besagter Datensammlungen zu verbessern bzw. deren Gültigkeitsbereich zu verallgemeinern.
 \newpage
 
 \section{Projektteil - ML-basierte Transpirationsflächen-Bestimmung}
@@ -175,7 +197,7 @@ Für das Projekt wurde ein Server mit einem 16-Kern AMD Ryzen 3950X und einer NV
 \section{Fazit}
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{leafsize.png}
+    \includegraphics[width=0.8\linewidth]{scatter.png}
     \caption{Vergleich der Modell-Vorhersage zum realen Wert}
     \label{fig:enter-label}
 \end{figure}
